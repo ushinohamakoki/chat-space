@@ -42,6 +42,7 @@ has_many groups_users
 |message|text|null: false|
 |imgae|string|
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 belongs_to group
 belongs_to user
