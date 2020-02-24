@@ -14,7 +14,7 @@ Rails.application.configure do
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
-  config.public_file_server.headers = {
+  config.public_file_server.users = {
     'Cache-Control' => 'public, max-age=3600'
   }
 
