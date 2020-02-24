@@ -2,42 +2,82 @@
   box-sizing: border-box;
 }
 
-.wrapper {
-  display: flex;
-}
-
 .side-bar {
   height: 100vh;
   width: 300px;
-  background-color: #2f3e51;
-    &__user {
-      height: 100px;
-      width: 300px;
-      background-color: #253141;
+  background-color: #253141;
+  float: left;
+  &__user {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__box {
+      height: 20px;
+      width: 260px;
+      display: flex;
+      justify-content: space-between;
+      &__name {
+        font-size: 16px;
+        color: #ffffff;
+        justify-content: flex-start;
+        padding-bottom: 5px;
+      }
+      &__icons {
+        width: 60px;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        text-decoration: none;
+        &__new-g {
+          a {
+          color: #ffffff;
+          }
+          padding-right: 5px;
+        }
+        &__edit-u {
+          a {
+          color: #ffffff;
+          }
+        }
+      }
     }
+  }
+  &__groups {
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 20px 20px 0px;
+    &__group {
+      padding-bottom: 40px;
+      &__group-name {
+        font-size: 15px;
+        color: #ffffff;
+        padding-bottom: 5px;
+      }
+      &__latest-message {
+        font-size: 11px;
+        color: #ffffff;
+      }
+    }
+  }
 }
 
 .chat-main {
   height: 100vh;
   width: calc(100vw - 300px);
   background-color: #ffffff;
-    &__group-info {
-      height: 100px;
-      width: calc(100vw - 300px);
-      background-color: #ffffff;
-   }
-    &__message-list {
-      height: calc(100vh - 191px);
-      width: calc(100vw - 300px);
-      background-color: #fafafa;
-      border-top: solid 1px;
-      border-color: #eeeeee;
-    }
-
-    &__message-form  {
-      height: 90px;
-      width: calc(100vw - 300px);
-      background-color: #d2d2d2;
-    }
-
-}
+  float: right;
+  &__group-info {
+    height: 100px;
+  }
+  &__message-list {
+    height: calc(100vh - 191px);
+    background-color: #fafafa;
+    border-top: solid 1px;
+    border-color: #eeeeee;
+  }
+  &__message-form {
+    height: 90px;
+    background-color: #d2d2d2;
+  }
+} 
