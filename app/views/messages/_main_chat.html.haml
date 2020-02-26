@@ -1,14 +1,38 @@
-.chat-main
-  .chat-main__group-info
-    .chat-main__group-info__name
-      .chat-main__group-info__name-current
+.main
+  .main__group-info
+    .main__group-info__name
+      .main__group-info__name__current-group
         test
-      %ul.chat-main__group-info__name-member
-        member:
+      %ul.main__group-info__name__current-group__member
+        member :
         %li
-          .chat-main__group-info__name-member-list
+          .main__group-info__name__current-group__member__list
             masa
-    = link_to "#", class: "chat-main__group-info__edit-btn" do
+    = link_to "#", class: "main__group-info__edit-btn" do
       Edit
-  .chat-main__message-list
-  .chat-main__message-form 
+  .main__message-lists
+    .main__message-list
+      .main__message-list__upper
+        %p.main__message-list__upper__talker
+          masa
+        %p.main__message-list__upper__date
+          2020/02/26(Wed) 10:00
+      %p.main__message-list__text
+        aiueo
+
+    .main__message-list
+      .main__message-list__upper
+        %p.main__message-list__upper__talker
+          masa
+        %p.main__message-list__upper__date
+          2020/02/26(Wed) 10:00
+      %p.main__message-list__text
+        aiueo
+  .main__message-form 
+    %form.main-form__new-message
+      .input-box
+        %input.input-box__text{type: "text", placeholder: "type a message"}
+        %label.input-box__image
+          %i.fa.fa-image
+          %input.input-box__image__file{type: "file"}
+      %input.submit-btn{type: "submit", value: "Send"} 
