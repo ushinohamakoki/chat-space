@@ -2,37 +2,22 @@
   .main__group-info
     .main__group-info__name
       .main__group-info__name__current-group
-        test
+        = @group.name
       %ul.main__group-info__name__current-group__member
         member :
-        %li
-          .main__group-info__name__current-group__member__list
-            masa
-    = link_to "#", class: "main__group-info__edit-btn" do
+        - @group.users.each_with_index do |user, i|
+          - unless i.zero?
+            ,
+          = user.name
+    = link_to edit_group_path(@group.id), class: "main__group-info__edit-btn" do
       Edit
   .main__message-lists
-    .main__message-list
-      .main__message-list__upper
-        %p.main__message-list__upper__talker
-          masa
-        %p.main__message-list__upper__date
-          2020/02/26(Wed) 10:00
-      %p.main__message-list__text
-        aiueo
-
-    .main__message-list
-      .main__message-list__upper
-        %p.main__message-list__upper__talker
-          masa
-        %p.main__message-list__upper__date
-          2020/02/26(Wed) 10:00
-      %p.main__message-list__text
-        aiueo
+    = render @messages
   .main__message-form 
-    %form.main-form__new-message
+    = form_for [@group, @message], html: {class: 'main-form__new-message'} do |f|
       .input-box
-        %input.input-box__text{type: "text", placeholder: "type a message"}
-        %label.input-box__image
-          %i.fa.fa-image
-          %input.input-box__image__file{type: "file"}
-      %input.submit-btn{type: "submit", value: "Send"} 
+        =f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      =f.submit 'send', class: 'form__sub'
