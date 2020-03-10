@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
-        fomat.json
+        format.json
       end
     else
       @messages = @group.messages.includes(:user)
