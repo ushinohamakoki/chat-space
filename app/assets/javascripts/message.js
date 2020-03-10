@@ -18,10 +18,10 @@ $(function(){
             </p>
           </div>
           <img src=${message.image} >
-        </div>`
+      </div>`
     } else {
       var html =
-      `<div class="main__message-list>
+      `<div class="main__message-list">
         <div class="main__message-list__upper">
           <div class="main__message-list__upper__talker">
             ${message.user_name}
