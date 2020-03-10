@@ -59,6 +59,7 @@ $(function(){
       var html = buildHTML(data);
       $('.main__message-lists').append(html);      
       $('form')[0].reset();
+      $('.main__message-lists').animate({ scrollTop: $('.main__message-lists')[0].scrollHeight});
     })
   });
 });
