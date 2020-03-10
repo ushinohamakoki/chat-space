@@ -57,6 +57,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      $('.main__message-lists').append(html);      
+      $('form')[0].reset();
     })
   });
 });
