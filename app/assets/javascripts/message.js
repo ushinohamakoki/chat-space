@@ -61,6 +61,9 @@ $(function(){
       $('form')[0].reset();
       $('.main__message-lists').animate({ scrollTop: $('.main__message-lists')[0].scrollHeight});
     })
+    .fail(function(){
+      alert('error');
+    });
     return false;
   });
 });
