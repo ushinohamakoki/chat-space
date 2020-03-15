@@ -4,3 +4,5 @@ json.content @message.content
 json.image @message.image_url
 
 json.id @message.id
+
+[user_name: 'test', created_at: 1111]
