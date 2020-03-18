@@ -33,14 +33,21 @@ $(function() {
   }
 
   $("#user-search-field").on("keyup", function() {
-    let input = $("#user-search-field").val();
+    let input = $(this).val();
+    user_ids = []
+    $("input[name='group[user_ids][]']").each(function (i, value){
+      user_id = $(value).val();
+      user_ids.push(user_id);
+    });
+    console.log(user_ids)
     $.ajax({
       type: "GET",
       url: "/users",
-      data: { keyword: input },
+      data: { keyword: input, user_ids: user_ids},
       dataType: "json"
     })
       .done(function(users){
+        console.log(users)
         $("#user-search-result").empty();
         if (users.length !== 0){
           users.forEach(function(user){
