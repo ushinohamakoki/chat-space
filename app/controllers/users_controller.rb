@@ -2,7 +2,10 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.search(params[:keyword], current_user.id)
+    return nil if params[:keyword] == ""
+    # params[:user_ids] << current_user.id if params[:user_ids]
+    # @users = User.where(['name LIKE ? and id not in ?', "%#{params[:keyword]}%", params[:user_ids]]).limit(10)
+    @users = User.where(['name LIKE ?', "%#{params[:keyword]}%"]).where.not(id: params[:user_ids]).limit(10)
     respond_to do |format|
       format.html
       format.json
