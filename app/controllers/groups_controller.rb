@@ -1,9 +1,7 @@
 class GroupsController < ApplicationController
 
-
   def index
   end
-
 
   def new
     @group = Group.new
@@ -16,7 +14,7 @@ class GroupsController < ApplicationController
       redirect_to root_path, notice: 'グループを作成しました'
     else
       render :new
-    end 
+    end
   end
 
   def edit

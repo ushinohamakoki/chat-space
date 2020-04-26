@@ -13,7 +13,7 @@
       Edit
   .main__message-lists
     = render @messages
-  .main__message-form 
+  .main__message-form
     = form_for [@group, @message], html: {class: 'main-form__new-message'} do |f|
       .input-box
         =f.text_field :content, class: 'input-box__text', placeholder: 'type a message'

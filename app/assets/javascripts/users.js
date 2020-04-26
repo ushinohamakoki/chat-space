@@ -7,7 +7,6 @@ $(function() {
       </div>
     `;
     $("#user-search-result").append(html);
-    console.log(html)
   }
 
   function addNoUser() {
@@ -25,10 +24,11 @@ $(function() {
       <p class="chat-group-user__name">${name}</p>
       <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
     </div>`;
-    $(".js-add-user").append(html);
+    $(".js-add-user#chat-group-users").append(html);
   }
   function addMember(userId) {
     let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    console.log(html)
     $(`#${userId}`).append(html);
   }
 
@@ -39,7 +39,7 @@ $(function() {
       user_id = $(value).val();
       user_ids.push(user_id);
     });
-    console.log(user_ids)
+
     $.ajax({
       type: "GET",
       url: "/users",
@@ -47,7 +47,6 @@ $(function() {
       dataType: "json"
     })
       .done(function(users){
-        console.log(users)
         $("#user-search-result").empty();
         if (users.length !== 0){
           users.forEach(function(user){
@@ -64,18 +63,20 @@ $(function() {
       });
   });
   $(document).on("click", ".chat-group-user__btn--add", function() {
-    console.log
+  // $('.user-search-add chat-group-user__btn chat-group-user__btn--add').click(function() {
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this)
-      .parent()
-      .remove();
+    .parent()
+    .remove();
+      // 上記の記述がないと、追加しても検索結果から消えないので必ず必要
     addDeleteUser(userName, userId);
     addMember(userId);
   });
+
   $(document).on("click", ".chat-group-user__btn--remove", function() {
-    $(this)
-      .parent()
-      .remove();
+    $(this).parent().remove();
+    // 上記の記述がないと、削除してもチャットメンバーから消えない
   });
+
 });

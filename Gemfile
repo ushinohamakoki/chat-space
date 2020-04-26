@@ -68,7 +68,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 
-group :test, :development do 
+group :test, :development do
   gem 'capybara'
 end
 
@@ -77,3 +77,5 @@ end
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+gem 'pry-byebug'
